@@ -1,40 +1,36 @@
 # Site Settings
-title: Bar Kazir| Data Analyst and Automation Specialist
+title: "Bar Kazir | Data Analyst and Automation Specialist"
 locale: "en-US"
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "neon" # סגנון כהה ומקצועי מאוד
+minimal_mistakes_skin: "neon" # סגנון כהה יוקרתי
 
-# Site URL
+# GitHub Pages requires these to be set
 url: "https://datacropsharvest.github.io"
 baseurl: ""
 
 # Profile Sidebar
 author:
   name: "Bar"
-  bio: "Data Scraping & Automation Expert"
+  bio: "Automating the web, one script at a time."
   location: "Israel"
-  avatar: "https://via.placeholder.com/150" # נחליף לתמונה שלך בהמשך
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/DataCropsHarvest"
 
-# Plugins
+# Mandatory Plugins for Minimal Mistakes
 plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
-  - jekyll-sitemap
 
-# Defaults
+# Build Settings
+include: ["_pages", "_data"]
+exclude: ["Gemfile", "Gemfile.lock"]
+
+# Setup Portfolio Layout
 defaults:
   - scope:
       path: ""
-      type: posts
     values:
-      layout: single
-      author_profile: true
-  - scope:
-      path: ""
-    values:
-      layout: single
+      layout: "single"
       author_profile: true

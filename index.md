@@ -16,6 +16,8 @@ author_profile: false
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    /* מוודא שהדף לא יבצע קפיצות מוזרות */
+    scroll-behavior: auto !important; 
   }
 
   /* 2. פריסת הרקע על כל המסך */
@@ -28,14 +30,13 @@ author_profile: false
     align-items: center;
     justify-content: center;
     color: white;
-    /* רקע בפריסה מלאה */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     text-align: center;
-    margin-left: calc(-50vw + 50%); /* טריק למרכוז מלא גם בתוך קונטיינר מוגבל */
+    margin-left: calc(-50vw + 50%);
   }
 
   h1.main-title {
@@ -49,7 +50,7 @@ author_profile: false
 
   /* 3. הגדלת תמונת הפרופיל */
   .profile-circle {
-    width: 280px; /* גדול ובולט יותר */
+    width: 280px;
     height: 280px;
     border-radius: 50%;
     border: 6px solid #00d4ff;
@@ -82,7 +83,6 @@ author_profile: false
     60% {transform: translateY(-10px);}
   }
 
-  /* סקשן התוכן שצף מתחת */
   .content-section {
     background: #121212;
     padding: 80px 5%;
@@ -104,6 +104,9 @@ author_profile: false
     text-decoration: none;
     color: white;
     transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact-item:hover {
@@ -163,3 +166,10 @@ author_profile: false
     </div>
   </div>
 </div>
+
+<script>
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+  history.scrollRestoration = "manual";
+</script>

@@ -1,0 +1,7 @@
+- title: "Yad2 Smart Hunter"
+  description: "Automated real-estate monitoring pipeline. Scrapes, filters, and notifies in real-time using Python and Playwright."
+  image: "/assets/images/yad2-preview.png"
+  link: "https://github.com/DataCropsHarvest/Yad2-Automation"
+  tech: ["Python", "Playwright", "Automation"]
+
+# כשתרצה להוסיף פרויקט שני, פשוט תעתיק את המבנה הזה כאן למטה

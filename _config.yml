@@ -1,6 +1,9 @@
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "contrast" # או "dark" לנראות יוקרתית
+minimal_mistakes_skin: "contrast" # זה ייתן את הרקע הכהה והיוקרתי
 
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values

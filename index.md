@@ -1,41 +1,101 @@
 ---
-layout: single
-classes: wide
-header:
-  overlay_color: "#1c1c1c" # צבע רקע נקי (1)
-  overlay_image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600 # רקע טכנולוגי עדין (2)
-  overlay_filter: 0.8 # הופך את הרקע לכהה כדי שהטקסט יצוף (3)
-  actions:
-    - label: "View My Projects ↓"
-      url: "#projects"
+layout: posts
+author_profile: false
 ---
 
-<div style="text-align: center;">
-  <h1 style="font-size: 3em; margin-bottom: 0.5em;">Bar Kazir Portfolio</h1>
+<style>
+  /* הגדרת הרקע הקבוע - Parallax */
+  body {
+    margin: 0;
+    padding: 0;
+  }
   
-  <img src="https://github.com/DataCropsHarvest.png" style="width: 180px; border-radius: 50%; border: 3px solid #00d4ff; margin-bottom: 20px;" alt="Bar Kazir">
+  .hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    /* החלף את הלינק למטה בתמונת הרקע הנקייה שתרצה */
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .hero-section h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 800;
+  }
+
+  .profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid #00d4ff;
+    margin: 20px 0;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0,212,255,0.5);
+  }
+
+  .skills-text {
+    font-size: 1.8em;
+    font-weight: 300;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+  }
+
+  .scroll-down {
+    font-size: 2.5em;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+  }
+
+  .projects-section {
+    padding: 80px 20px;
+    background: #121212;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+</style>
+
+<div class="hero-section">
+  <h1>Bar Kazir Portfolio</h1>
   
-  <p style="font-size: 1.5em; color: #00d4ff;">Python | SQL | AI and Machine Learning</p>
+  <img src="https://github.com/DataCropsHarvest.png" class="profile-img" alt="Bar Kazir">
+  
+  <p class="skills-text">Python, SQL, AI and Machine Learning</p>
+  
+  <a href="#projects" class="scroll-down">
+    <i class="fas fa-chevron-down"></i>
+  </a>
 </div>
 
-<div style="height: 100px;"></div>
-
-<section id="projects" style="padding-top: 50px;">
-  <h2 style="text-align: center; border-bottom: 2px solid #00d4ff; padding-bottom: 10px;">My Projects</h2>
-  
-  ### 🏠 Yad2 Smart Hunter
-  [![Yad2 Preview](/assets/images/yad2-preview.png)](https://github.com/DataCropsHarvest/Yad2-Automation)
-  אוטומציה חכמה לחיפוש דירות בחיפה באמצעות Python ו-Playwright.
-</section>
-
----
-
-## 📞 Contact Information
-<div style="background: #252525; padding: 20px; border-radius: 10px;">
-  <p><strong>📱 Mobile:</strong> (+972)54-7869012</p>
-  <p><strong>📧 Email:</strong> <a href="mailto:Barkazir@gmail.com">Barkazir@gmail.com</a></p>
-  <p><strong>🌐 Social:</strong> 
-    <a href="https://www.linkedin.com/in/bar-kazir/" style="margin-right: 15px;"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://github.com/DataCropsHarvest"><i class="fab fa-github"></i> GitHub</a>
-  </p>
+<div id="projects" class="projects-section">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h2 style="font-size: 2.5em; border-bottom: 2px solid #00d4ff; padding-bottom: 10px;">Projects</h2>
+    
+    <div style="margin-top: 40px;">
+      <h3>🏠 Yad2 Smart Hunter</h3>
+      <p>Automated real-estate monitoring pipeline.</p>
+      <a href="https://github.com/DataCropsHarvest/Yad2-Automation" style="color: #00d4ff;">View Project on GitHub</a>
+    </div>
+  </div>
 </div>

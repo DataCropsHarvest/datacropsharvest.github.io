@@ -24,6 +24,7 @@ author_profile: false
 
   /* 2. Hero Section - מרכוז מלא */
   .hero-wrapper {
+    position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -58,7 +59,7 @@ author_profile: false
     padding: 80px 0;
     display: flex;
     flex-direction: column;
-    align-items: center; /* מבטיח שהקונטיינר הפנימי ימורכז */
+    align-items: center;
   }
 
   .container {
@@ -73,7 +74,14 @@ author_profile: false
     padding: 40px;
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin-bottom: 50px;
-    text-align: left; /* הטקסט בתוך הכרטיס נשאר לשמאל לקריאות */
+    text-align: left;
+  }
+
+  .project-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
   }
 
   .tech-tag {
@@ -109,12 +117,15 @@ author_profile: false
   .contact-item i { font-size: 3.5em; margin-bottom: 15px; }
   .contact-item:hover { color: #00d4ff; transform: scale(1.1); }
 
+  /* החץ שחזר */
   .scroll-arrow {
     position: absolute;
     bottom: 40px;
     font-size: 3em;
     color: white;
     animation: bounce 2s infinite;
+    cursor: pointer;
+    text-decoration: none;
   }
 
   @keyframes bounce {
@@ -125,50 +136,4 @@ author_profile: false
 </style>
 
 <div class="hero-wrapper">
-  <h1 style="font-size: clamp(3em, 10vw, 6em); text-transform: uppercase; margin: 0; letter-spacing: 10px; font-weight: 900;">Bar Kazir Portfolio</h1>
-  <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
-  <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
-  <a href="#projects" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
-</div>
-
-<div id="projects" class="content-wrapper">
-  <div class="container">
-    <h2 style="text-align: center; font-size: 3.5em; margin-bottom: 60px;">Projects</h2>
-
-    {% for project in site.data.projects %}
-    <div class="project-card">
-      {% if project.image %}
-      <img src="{{ project.image }}" alt="{{ project.title }}" style="width: 100%; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(0,212,255,0.2);">
-      {% endif %}
-      
-      <h3 style="font-size: 2.2em; color: #00d4ff; margin-top: 0;">{{ project.title }}</h3>
-      <p style="font-size: 1.15em; line-height: 1.6;">{{ project.description }}</p>
-      
-      <div style="margin: 20px 0;">
-        {% for tag in project.tech %}
-        <span class="tech-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-
-      <div style="margin-top: 25px;">
-        <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-weight: bold; text-decoration: none; border: 1px solid #00d4ff; padding: 10px 25px; border-radius: 5px;">
-          VIEW PROJECT →
-        </a>
-      </div>
-    </div>
-    {% endfor %}
-
-    <h2 style="text-align: center; font-size: 3.5em; margin-top: 100px;">Get In Touch</h2>
-    <div class="contact-grid">
-      <a href="https://wa.me/972547869012" class="contact-item" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
-      <a href="mailto:Barkazir@gmail.com" class="contact-item"><i class="fas fa-envelope"></i><span>Email</span></a>
-      <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-      <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a>
-    </div>
-  </div>
-</div>
-
-<script>
-  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-  window.scrollTo(0, 0);
-</script>
+  <h1 style="font-size: clamp(3em, 10vw, 6em); text-transform: uppercase; margin: 0; letter-spacing: 10px; font-weight: 900;">Bar

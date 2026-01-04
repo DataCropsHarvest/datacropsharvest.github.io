@@ -176,7 +176,7 @@ author_profile: false
       <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
         <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
       </a>
-     <a href="javascript:void(0);" onclick="window.location.href='mailto:barkazir@gmail.com'; return false;" class="contact-item">
+    <a href="mailto:barkazir@gmail.com" class="contact-item" style="cursor: pointer; position: relative; z-index: 999;">
         <i class="fas fa-envelope"></i><span>Email</span>
       </a>
       <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">

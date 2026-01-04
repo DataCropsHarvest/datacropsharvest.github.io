@@ -26,3 +26,12 @@ defaults:
     values:
       layout: "single"
       author_profile: false # נכבה את הפרופיל בצד כדי שהכל יהיה במרכז
+
+# הגדרות כדי למנוע מלינקדאין להתבלבל
+repository: "DataCropsHarvest/datacropsharvest.github.io"
+twitter_assistant: none
+facebook_assistant: none
+
+# מניעת קישור אוטומטי לפרופיל הראשי
+author:
+  github: "DataCropsHarvest" # רק השם, לא הלינק המלא

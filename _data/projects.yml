@@ -1,7 +1,14 @@
-- title: "Yad2 Smart Hunter"
-  description: "Automated real-estate monitoring pipeline. Scrapes, filters, and notifies in real-time using Python and Playwright."
-  image: "/assets/images/yad2-preview.png"
+- title: "🏠 Yad2 Smart Hunter"
+  description: "Automated real-estate monitoring pipeline. Scrapes, filters, and notifies in real-time using Python and Playwright to find housing opportunities in Haifa."
   link: "https://github.com/DataCropsHarvest/Yad2-Automation"
-  tech: ["Python", "Playwright", "Automation"]
+  tech: ["Python", "Playwright", "Automation", "SMTP"]
 
-# כשתרצה להוסיף פרויקט שני, פשוט תעתיק את המבנה הזה כאן למטה
+- title: "📊 My Year in Steps"
+  description: "Data analysis of Garmin watch metrics. Insights showed a total of 4 million steps (3.5k km), equivalent to walking across Western Europe."
+  link: "https://barkazir.wixsite.com/mysite/copy-of-tsunami"
+  tech: ["SQL", "Tableau", "Excel", "Data Viz"]
+
+- title: "📈 HR Analysis Dashboard"
+  description: "Comprehensive Human Resources dashboard. Analyzed employee data from SQL extraction to dynamic Tableau visualizations, focusing on retention and satisfaction."
+  link: "https://barkazir.wixsite.com/mysite/project-hr-dashboard"
+  tech: ["SQL", "Tableau", "ETL", "HR Analytics"]

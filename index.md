@@ -146,48 +146,36 @@ author_profile: false
 
 <div id="projects" class="content-wrapper">
   <div class="container">
-    <h2 style="text-align: center; font-size: 3.5em; margin-bottom: 60px;">Featured Projects</h2>
-
-    {% if site.data.projects %}
-      {% for project in site.data.projects %}
-      <div class="project-card">
-        {% if project.image %}
-        <img src="{{ project.image }}" style="width: 100%; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(0,212,255,0.1);">
-        {% endif %}
+   <h2 style="text-align: center; font-size: 3.5em; margin-top: 100px;">Get In Touch</h2>
+    <div class="contact-grid" style="display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; gap: 50px; width: 100%; max-width: 900px; margin: 60px auto 0 auto;">
+      
+      <div style="display: flex; gap: 60px;">
+        <a href="https://wa.me/972547869012" class="contact-item" target="_blank" style="text-decoration: none; color: white; text-align: center;">
+          <i class="fab fa-whatsapp" style="font-size: 3.5em; display: block; margin-bottom: 10px;"></i>
+          <span style="font-weight: bold; display: block;">WhatsApp</span>
+          <span style="font-size: 0.9em; color: #00d4ff;">(+972)-547869012</span>
+        </a>
         
-        <h3 style="font-size: 2.2em; color: #00d4ff; margin-top: 0;">{{ project.title }}</h3>
-        <p style="font-size: 1.2em; line-height: 1.6;">{{ project.description }}</p>
-        
-        <div style="margin: 20px 0;">
-          {% for tag in project.tech %}
-          <span class="tech-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-
-        <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-weight: bold; text-decoration: none; border: 1px solid #00d4ff; padding: 10px 20px; border-radius: 5px;">
-          VIEW PROJECT →
+        <a href="mailto:barkazir@gmail.com" class="contact-item" style="text-decoration: none; color: white; text-align: center;">
+          <i class="fas fa-envelope" style="font-size: 3.5em; display: block; margin-bottom: 10px;"></i>
+          <span style="font-weight: bold; display: block;">Email</span>
+          <span style="font-size: 0.9em; color: #00d4ff;">barkazir@gmail.com</span>
         </a>
       </div>
-      {% endfor %}
-    {% endif %}
 
-    <h2 style="text-align: center; font-size: 3.5em; margin-top: 100px;">Get In Touch</h2>
-    <div class="contact-grid">
-      <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
-        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
-      </a>
-    <a href="mailto:barkazir@gmail.com" class="contact-item" style="cursor: pointer; position: relative; z-index: 999;">
-        <i class="fas fa-envelope"></i><span>Email</span>
-      </a>
-      <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">
-        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
-      </a>
-      <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank">
-        <i class="fab fa-github"></i><span>GitHub</span>
-      </a>
+      <div style="display: flex; gap: 60px;">
+        <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank" style="text-decoration: none; color: white; text-align: center;">
+          <i class="fab fa-linkedin" style="font-size: 3.5em; display: block; margin-bottom: 10px;"></i>
+          <span style="font-weight: bold; display: block;">LinkedIn</span>
+        </a>
+        
+        <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank" style="text-decoration: none; color: white; text-align: center;">
+          <i class="fab fa-github" style="font-size: 3.5em; display: block; margin-bottom: 10px;"></i>
+          <span style="font-weight: bold; display: block;">GitHub</span>
+        </a>
+      </div>
+
     </div>
-  </div>
-</div>
 
 <script>
   if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }

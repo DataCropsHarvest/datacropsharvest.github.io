@@ -5,22 +5,28 @@ author_profile: false
 ---
 
 <style>
-  /* 1. מחיקת הסרגל העליון והאלמנטים המובנים של התבנית */
-  .masthead, .page__footer, .page__taxonomy, .breadcrumb {
+  /* 1. איפוס מוחלט של כל רווחי התבנית */
+  .masthead, .page__footer, .page__taxonomy, .breadcrumb, .page__sidebar, .archive {
     display: none !important;
   }
 
-  body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    /* מוודא שהדף לא יבצע קפיצות מוזרות */
-    scroll-behavior: auto !important; 
+  /* ביטול השוליים של מיכלי התוכן המובנים */
+  #main, .page, .page__content, .layout--single {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
-  /* 2. פריסת הרקע על כל המסך */
+  /* ביטול הרווח הלבן למעלה ומשמאל */
+  body, html {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    overflow-x: hidden;
+  }
+
+  /* 2. פריסת הרקע על כל המסך מקצה לקצה */
   .hero-wrapper {
     position: relative;
     height: 100vh;
@@ -36,7 +42,11 @@ author_profile: false
     background-position: center;
     background-size: cover;
     text-align: center;
-    margin-left: calc(-50vw + 50%);
+    /* התיקון הקריטי למרכוז וביטול ה-Sidebar הבלתי נראה */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
 
   h1.main-title {
@@ -45,10 +55,8 @@ author_profile: false
     text-transform: uppercase;
     letter-spacing: 10px;
     font-weight: 900;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
   }
 
-  /* 3. הגדלת תמונת הפרופיל */
   .profile-circle {
     width: 280px;
     height: 280px;
@@ -63,32 +71,20 @@ author_profile: false
     font-size: 2em;
     color: #00d4ff;
     font-weight: 300;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
   }
 
-  .scroll-arrow {
-    position: absolute;
-    bottom: 40px;
-    font-size: 3em;
-    color: white;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-20px);}
-    60% {transform: translateY(-10px);}
-  }
-
+  /* 3. סקשן Projects - רקע שקוף ומרכוז */
   .content-section {
-    background: #121212;
+    background: rgba(18, 18, 18, 0.7); /* שקיפות משופרת */
+    backdrop-filter: blur(10px);
     padding: 80px 5%;
     color: white;
     width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
 
   .contact-grid {
@@ -107,17 +103,28 @@ author_profile: false
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .contact-item:hover {
-    color: #00d4ff;
-    transform: scale(1.1);
+    width: 120px;
   }
 
   .contact-item i {
     font-size: 3.5em;
     display: block;
     margin-bottom: 15px;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    bottom: 40px;
+    font-size: 3em;
+    color: white;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
   }
 </style>
 
@@ -135,7 +142,7 @@ author_profile: false
   <div style="max-width: 1100px; margin: 0 auto;">
     <h2 style="text-align: center; font-size: 3.5em; margin-bottom: 70px; border-bottom: 2px solid #333; padding-bottom: 20px;">Projects</h2>
     
-    <div style="background: #1a1a1a; padding: 40px; border-radius: 15px; border-left: 8px solid #00d4ff; margin-bottom: 100px;">
+    <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border-left: 8px solid #00d4ff; margin-bottom: 100px;">
       <h3 style="font-size: 2.2em; margin-top: 0;">🏠 Yad2 Smart Hunter</h3>
       <p style="font-size: 1.2em; line-height: 1.6;">Automated monitoring pipeline for real-estate market. Scrapes, filters, and notifies in real-time.</p>
       <a href="https://github.com/DataCropsHarvest/Yad2-Automation" style="color: #00d4ff; font-weight: bold; text-decoration: none;">[ VIEW CODE ON GITHUB ]</a>
@@ -168,8 +175,6 @@ author_profile: false
 </div>
 
 <script>
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  }
-  history.scrollRestoration = "manual";
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
 </script>

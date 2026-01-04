@@ -1,3 +1,6 @@
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "contrast" # או "dark" לנראות יוקרתית
+
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values

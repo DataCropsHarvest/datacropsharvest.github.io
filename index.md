@@ -18,7 +18,6 @@ author_profile: false
     margin: 0 !important;
   }
 
-  /* הבטחה שהתוכן לא יזוז ימינה */
   .layout--single .page__content {
     float: none !important;
     width: 100% !important;
@@ -47,17 +46,18 @@ author_profile: false
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    /* טריק המרכוז הקריטי */
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    padding: 20px;
   }
 
   .profile-circle {
-    width: 280px;
-    height: 280px;
+    width: clamp(180px, 40vw, 280px);
+    height: clamp(180px, 40vw, 280px);
     border-radius: 50%;
     border: 6px solid #00d4ff;
-    margin: 40px 0;
+    margin: 20px 0;
     box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
     object-fit: cover;
   }
@@ -71,7 +71,7 @@ author_profile: false
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    padding: 80px 0;
+    padding: 60px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +86,7 @@ author_profile: false
   .project-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
-    padding: 35px;
+    padding: clamp(20px, 5vw, 35px);
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin-bottom: 40px;
     text-align: left;
@@ -106,7 +106,7 @@ author_profile: false
   .contact-grid {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 30px;
     flex-wrap: wrap;
     margin-top: 50px;
     width: 100%;
@@ -117,10 +117,20 @@ author_profile: false
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
+    min-width: 150px;
+    margin-bottom: 20px;
   }
 
-  .contact-item:hover { color: #00d4ff; transform: scale(1.1); }
+  .contact-item:hover { color: #00d4ff; transform: scale(1.05); }
   .contact-item i { font-size: 3em; display: block; margin-bottom: 10px; }
+
+  .contact-info {
+    display: block;
+    font-size: 0.85em;
+    color: #00d4ff;
+    margin-top: 5px;
+    word-break: break-all; /* מבטיח שהמייל לא יחרוג מהמסך במובייל */
+  }
 
   .scroll-arrow {
     position: absolute;
@@ -128,6 +138,15 @@ author_profile: false
     font-size: 3em;
     color: white;
     animation: bounce 2s infinite;
+  }
+
+  /* --- התאמה למובייל (Responsive Design) --- */
+  @media (max-width: 768px) {
+    .hero-wrapper h1 { font-size: 2.5em !important; }
+    .hero-wrapper p { font-size: 1.2em !important; }
+    .content-wrapper h2 { font-size: 2.2em !important; }
+    .contact-grid { gap: 15px; }
+    .contact-item { min-width: 40%; }
   }
 
   @keyframes bounce {
@@ -138,7 +157,7 @@ author_profile: false
 </style>
 
 <div class="hero-wrapper">
-  <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 10px; font-weight: 900;">Bar Kazir Portfolio</h1>
+  <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 5px; font-weight: 900;">Bar Kazir Portfolio</h1>
   <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
   <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
   <a href="#projects" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
@@ -174,16 +193,25 @@ author_profile: false
     <h2 style="text-align: center; font-size: 3.5em; margin-top: 100px;">Get In Touch</h2>
     <div class="contact-grid">
       <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
-        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+        <span class="contact-info">(+972)-547869012</span>
       </a>
-    <a href="mailto:barkazir@gmail.com" class="contact-item" style="cursor: pointer; position: relative; z-index: 999;">
-        <i class="fas fa-envelope"></i><span>Email</span>
+
+      <a href="mailto:barkazir@gmail.com" class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+        <span class="contact-info">barkazir@gmail.com</span>
       </a>
+
       <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">
-        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
       </a>
+
       <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank">
-        <i class="fab fa-github"></i><span>GitHub</span>
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
       </a>
     </div>
   </div>

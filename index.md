@@ -4,7 +4,7 @@ author_profile: false
 ---
 
 <style>
-  /* 1. ביטול מוחלט של אלמנטים מובנים ורווחים */
+  /* איפוס והגדרות בסיס */
   .masthead, .page__footer, .page__taxonomy, .breadcrumb, .page__sidebar {
     display: none !important;
   }
@@ -20,9 +20,10 @@ author_profile: false
     padding: 0 !important;
     width: 100% !important;
     overflow-x: hidden;
+    background-color: #121212;
   }
 
-  /* 2. Hero Section - מרכוז מלא */
+  /* Hero Section */
   .hero-wrapper {
     position: relative;
     height: 100vh;
@@ -32,7 +33,7 @@ author_profile: false
     align-items: center;
     justify-content: center;
     color: white;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
     background-attachment: fixed;
     background-position: center;
@@ -50,9 +51,9 @@ author_profile: false
     object-fit: cover;
   }
 
-  /* 3. סקשן התוכן הדינמי */
+  /* Content Section */
   .content-wrapper {
-    background: rgba(18, 18, 18, 0.85);
+    background: rgba(18, 18, 18, 0.9);
     backdrop-filter: blur(15px);
     color: white;
     width: 100%;
@@ -64,21 +65,23 @@ author_profile: false
 
   .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
   .project-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 15px;
+    padding: 30px;
     border: 1px solid rgba(0, 212, 255, 0.2);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: left;
   }
 
   .project-img {
     width: 100%;
+    max-height: 400px;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
     border: 1px solid rgba(0, 212, 255, 0.1);
@@ -86,38 +89,15 @@ author_profile: false
 
   .tech-tag {
     display: inline-block;
-    background: rgba(0, 212, 255, 0.15);
+    background: rgba(0, 212, 255, 0.1);
     color: #00d4ff;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.85em;
-    margin: 5px 5px 5px 0;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-right: 8px;
     border: 1px solid #00d4ff;
   }
 
-  .contact-grid {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 60px;
-    width: 100%;
-  }
-
-  .contact-item {
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    transition: 0.4s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-item i { font-size: 3.5em; margin-bottom: 15px; }
-  .contact-item:hover { color: #00d4ff; transform: scale(1.1); }
-
-  /* החץ שחזר */
   .scroll-arrow {
     position: absolute;
     bottom: 40px;
@@ -125,7 +105,6 @@ author_profile: false
     color: white;
     animation: bounce 2s infinite;
     cursor: pointer;
-    text-decoration: none;
   }
 
   @keyframes bounce {
@@ -133,7 +112,55 @@ author_profile: false
     40% {transform: translateY(-20px);}
     60% {transform: translateY(-10px);}
   }
+
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .contact-item {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1em;
+  }
+  .contact-item i { font-size: 2.5em; display: block; margin-bottom: 10px; }
+  .contact-item:hover { color: #00d4ff; }
 </style>
 
 <div class="hero-wrapper">
-  <h1 style="font-size: clamp(3em, 10vw, 6em); text-transform: uppercase; margin: 0; letter-spacing: 10px; font-weight: 900;">Bar
+  <h1 style="font-size: clamp(2.5em, 8vw, 5em); margin: 0; letter-spacing: 5px; font-weight: 900;">BAR KAZIR</h1>
+  <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
+  <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
+  <a href="#projects" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
+</div>
+
+<div id="projects" class="content-wrapper">
+  <div class="container">
+    <h2 style="text-align: center; font-size: 3em; margin-bottom: 50px;">Featured Projects</h2>
+
+    {% if site.data.projects %}
+      {% for project in site.data.projects %}
+      <div class="project-card">
+        {% if project.image %}
+        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="project-img">
+        {% endif %}
+        
+        <h3 style="font-size: 2em; color: #00d4ff; margin-top: 0;">{{ project.title }}</h3>
+        <p style="font-size: 1.1em; line-height: 1.6;">{{ project.description }}</p>
+        
+        <div style="margin: 15px 0;">
+          {% for tag in project.tech %}
+          <span class="tech-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+
+        <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-weight: bold; text-decoration: none; border-bottom: 1px dashed #00d4ff;">
+          VIEW PROJECT →
+        </a>
+      </div>
+      {% endfor %}
+    {% else %}

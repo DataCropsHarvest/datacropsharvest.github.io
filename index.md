@@ -113,7 +113,7 @@ author_profile: false
 
     <h2 style="text-align: center; font-size: 3.5em; margin-top: 100px;">Get In Touch</h2>
     <div class="contact-grid">
-      <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
+      <a href="https://wa.me/97254-7869012" class="contact-item" target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span class="contact-label">(+972)-547869012</span>
       </a>

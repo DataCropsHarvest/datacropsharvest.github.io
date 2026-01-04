@@ -138,7 +138,7 @@ author_profile: false
 </style>
 
 <div class="hero-wrapper">
-  <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 10px; font-weight: 900;">Bar Kazir</h1>
+  <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 10px; font-weight: 900;">Bar Kazir Portfolio</h1>
   <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
   <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
   <a href="#projects" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
@@ -176,7 +176,7 @@ author_profile: false
       <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
         <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
       </a>
-     <a href="mailto:barkazir@gmail.com" class="contact-item">
+     <a href="javascript:void(0);" onclick="window.location.href='mailto:barkazir@gmail.com'; return false;" class="contact-item">
         <i class="fas fa-envelope"></i><span>Email</span>
       </a>
       <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">

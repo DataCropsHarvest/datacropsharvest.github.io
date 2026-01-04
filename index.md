@@ -137,6 +137,10 @@ author_profile: false
 
     {% for project in site.data.projects %}
     <div class="project-card">
+      {% if project.image %}
+      <img src="{{ project.image }}" alt="{{ project.title }}" style="width: 100%; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(0,212,255,0.2);">
+      {% endif %}
+      
       <h3 style="font-size: 2.2em; color: #00d4ff; margin-top: 0;">{{ project.title }}</h3>
       <p style="font-size: 1.15em; line-height: 1.6;">{{ project.description }}</p>
       

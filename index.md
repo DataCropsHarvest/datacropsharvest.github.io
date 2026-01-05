@@ -55,15 +55,19 @@ author_profile: false
     padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
   }
 
-  /* 4. עיצוב אייקונים תחתון - ריווח מקסימלי מורחב */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 40px; 
-    margin: 60px auto 0 auto;
+  /* 4. עיצוב אייקונים תחתון - סידור בזוגות לקירוב לינקדאין וגיטהאב */
+  .contact-outer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* הרווח הגדול בין זוג ימין לזוג שמאל */
+    margin-top: 50px;
     width: 100%;
-    max-width: 1100px; /* ריווח רחב מאוד */
-    justify-items: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-group {
+    display: flex;
+    gap: 40px; /* הרווח הקטן יותר בתוך הזוג */
   }
 
   .contact-item {
@@ -90,12 +94,9 @@ author_profile: false
   }
 
   /* התאמה למובייל */
-  @media (max-width: 900px) {
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      max-width: 500px;
-    }
+  @media (max-width: 768px) {
+    .contact-outer-wrapper { gap: 40px; }
+    .contact-group { gap: 20px; }
     .contact-item { white-space: normal; }
   }
 
@@ -135,26 +136,31 @@ author_profile: false
     {% endif %}
 
     <h2 style="text-align: center; font-size: 3em; margin-top: 80px;">Get In Touch</h2>
-    <div class="contact-grid">
-      <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span class="contact-label">(+972)-54-7869012</span>
-      </a>
+    
+    <div class="contact-outer-wrapper">
+      <div class="contact-group">
+        <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          <span class="contact-label">(+972)-54-7869012</span>
+        </a>
 
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <span class="contact-label">barkazir@gmail.com</span>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span class="contact-label">barkazir@gmail.com</span>
+        </div>
       </div>
 
-      <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        <span class="contact-label">LinkedIn</span>
-      </a>
+      <div class="contact-group">
+        <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">
+          <i class="fab fa-linkedin"></i>
+          <span class="contact-label">LinkedIn</span>
+        </a>
 
-      <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank">
-        <i class="fab fa-github"></i>
-        <span class="contact-label">GitHub</span>
-      </a>
+        <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank">
+          <i class="fab fa-github"></i>
+          <span class="contact-label">GitHub</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

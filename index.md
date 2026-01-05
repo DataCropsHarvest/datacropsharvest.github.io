@@ -35,23 +35,25 @@ author_profile: false
     box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); object-fit: cover;
   }
 
-  /* 3. סקשן התוכן */
+  /* 3. סקשן התוכן - הקטנת הקונטיינר ל-700px */
   .content-wrapper {
     background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(15px); color: white;
     width: 100vw; position: relative; left: 50%; transform: translateX(-50%);
     padding: 40px 0 80px 0; display: flex; flex-direction: column; align-items: center;
   }
 
-  .container { width: 90%; max-width: 900px; margin: 0 auto; }
+  .container { width: 90%; max-width: 700px; margin: 0 auto; }
 
+  /* הקטנת ה-padding והמרווח התחתון של הכרטיס */
   .project-card {
-    background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 35px;
-    border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 40px; text-align: left;
+    background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 25px;
+    border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 30px; text-align: left;
   }
 
+  /* הקטנת גודל הכתב של התגיות */
   .tech-tag {
     display: inline-block; background: rgba(0, 212, 255, 0.1); color: #00d4ff;
-    padding: 4px 12px; border-radius: 5px; font-size: 0.85em; margin: 5px 5px 5px 0; border: 1px solid #00d4ff;
+    padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
   }
 
   /* 4. עיצוב אייקונים תחתון */
@@ -91,27 +93,30 @@ author_profile: false
 
 <div id="projects" class="content-wrapper">
   <div class="container">
-    <h2 style="text-align: center; font-size: 3.5em; margin: 0 0 50px 0;">Projects</h2>
+    <h2 style="text-align: center; font-size: 2.8em; margin: 0 0 40px 0;">Projects</h2>
 
     {% if site.data.projects %}
       {% for project in site.data.projects %}
       <div class="project-card">
         {% if project.image %}
-        <img src="{{ project.image }}" style="width: 100%; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(0,212,255,0.1);">
+        <img src="{{ project.image }}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(0,212,255,0.1);">
         {% endif %}
-        <h3 style="font-size: 2.2em; color: #00d4ff; margin-top: 0;">{{ project.title }}</h3>
-        <p style="font-size: 1.2em; line-height: 1.6;">{{ project.description }}</p>
-        <div style="margin: 20px 0;">
+        
+        <h3 style="font-size: 1.6em; color: #00d4ff; margin-top: 0; margin-bottom: 10px;">{{ project.title }}</h3>
+        <p style="font-size: 1em; line-height: 1.5; margin-bottom: 15px;">{{ project.description }}</p>
+        
+        <div style="margin: 15px 0;">
           {% for tag in project.tech %}
           <span class="tech-tag">{{ tag }}</span>
           {% endfor %}
         </div>
-        <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-weight: bold; text-decoration: none; border: 1px solid #00d4ff; padding: 10px 20px; border-radius: 5px;">VIEW PROJECT →</a>
+        
+        <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-size: 0.9em; font-weight: bold; text-decoration: none; border: 1px solid #00d4ff; padding: 8px 16px; border-radius: 5px; display: inline-block;">VIEW PROJECT →</a>
       </div>
       {% endfor %}
     {% endif %}
 
-    <h2 style="text-align: center; font-size: 3.5em; margin-top: 100px;">Get In Touch</h2>
+    <h2 style="text-align: center; font-size: 3em; margin-top: 80px;">Get In Touch</h2>
     <div class="contact-grid">
       <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -137,7 +142,6 @@ author_profile: false
 </div>
 
 <script>
-  // מבטיח שהעמוד תמיד יטען מהטופ
   window.onbeforeunload = function () { window.scrollTo(0, 0); };
   if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
   window.scrollTo(0, 0);

@@ -42,11 +42,12 @@ author_profile: false
     padding: 40px 0 80px 0; display: flex; flex-direction: column; align-items: center;
   }
 
-  .container { width: 90%; max-width: 700px; margin: 0 auto; }
+  .container { width: 95%; max-width: 1200px; margin: 0 auto; }
 
   .project-card {
     background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 25px;
     border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 30px; text-align: left;
+    max-width: 700px; margin-left: auto; margin-right: auto;
   }
 
   .tech-tag {
@@ -54,14 +55,15 @@ author_profile: false
     padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
   }
 
-  /* 4. עיצוב אייקונים תחתון - ריווח מקסימלי שווה ומניעת ירידת שורה */
+  /* 4. עיצוב אייקונים תחתון - ריווח מקסימלי מורחב */
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 עמודות שוות לחלוטין */
-    gap: 15px;
-    margin-top: 50px;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px; 
+    margin: 60px auto 0 auto;
     width: 100%;
-    max-width: 1000px; /* רוחב מוגדל לריווח מקסימלי */
+    max-width: 1100px; /* ריווח רחב מאוד */
+    justify-items: center;
   }
 
   .contact-item {
@@ -72,7 +74,7 @@ author_profile: false
     display: flex;
     flex-direction: column;
     align-items: center;
-    white-space: nowrap; /* מונע מהטקסט לרדת שורה */
+    white-space: nowrap;
   }
 
   a.contact-item:hover {
@@ -80,20 +82,21 @@ author_profile: false
     transform: scale(1.05);
   }
   
-  .contact-item i { font-size: 3em; margin-bottom: 12px; }
-  .contact-label { font-weight: bold; font-size: 1em; display: block; }
+  .contact-item i { font-size: 3.2em; margin-bottom: 15px; }
+  .contact-label { font-weight: bold; font-size: 1.05em; display: block; }
 
   .scroll-arrow {
     position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
   }
 
-  /* התאמה למובייל - מעבר ל-2 שורות רק במסכים קטנים מאוד */
-  @media (max-width: 768px) {
+  /* התאמה למובייל */
+  @media (max-width: 900px) {
     .contact-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 40px;
+      max-width: 500px;
     }
-    .contact-item { white-space: normal; } /* במובייל נאפשר ירידת שורה אם אין ברירה */
+    .contact-item { white-space: normal; }
   }
 
   @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }

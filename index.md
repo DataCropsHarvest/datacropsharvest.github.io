@@ -54,45 +54,46 @@ author_profile: false
     padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
   }
 
-  /* 4. עיצוב אייקונים תחתון - תיקון גריד וצבעים */
+  /* 4. עיצוב אייקונים תחתון - ריווח מקסימלי שווה ומניעת ירידת שורה */
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 עמודות שוות */
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 עמודות שוות לחלוטין */
+    gap: 15px;
     margin-top: 50px;
     width: 100%;
-    max-width: 850px; /* הגדלת הרוחב כדי שהכל ייכנס בשורה אחת */
+    max-width: 1000px; /* רוחב מוגדל לריווח מקסימלי */
   }
 
   .contact-item {
-    color: white !important; /* כפיית צבע לבן על הכל */
+    color: white !important;
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
+    white-space: nowrap; /* מונע מהטקסט לרדת שורה */
   }
 
-  /* רק פריטים לחיצים (WhatsApp, LinkedIn, GitHub) יגיבו למעבר עכבר */
   a.contact-item:hover {
     color: #00d4ff !important;
     transform: scale(1.05);
   }
   
   .contact-item i { font-size: 3em; margin-bottom: 12px; }
-  .contact-label { font-weight: bold; font-size: 1em; display: block; word-break: break-word; }
+  .contact-label { font-weight: bold; font-size: 1em; display: block; }
 
   .scroll-arrow {
     position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
   }
 
   /* התאמה למובייל - מעבר ל-2 שורות רק במסכים קטנים מאוד */
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .contact-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
+    .contact-item { white-space: normal; } /* במובייל נאפשר ירידת שורה אם אין ברירה */
   }
 
   @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }

@@ -54,29 +54,45 @@ author_profile: false
     padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
   }
 
-  /* 4. עיצוב אייקונים תחתון */
+  /* 4. עיצוב אייקונים תחתון - תיקון גריד וצבעים */
   .contact-grid {
-    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 50px; width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 עמודות שוות */
+    gap: 20px;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 850px; /* הגדלת הרוחב כדי שהכל ייכנס בשורה אחת */
   }
 
   .contact-item {
-    color: white; text-align: center; text-decoration: none; transition: 0.3s;
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    min-width: 120px;
+    color: white !important; /* כפיית צבע לבן על הכל */
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* רק פריטים שהם קישורים יגיבו למעבר עכבר */
-  a.contact-item:hover { color: #00d4ff; transform: scale(1.05); }
+  /* רק פריטים לחיצים (WhatsApp, LinkedIn, GitHub) יגיבו למעבר עכבר */
+  a.contact-item:hover {
+    color: #00d4ff !important;
+    transform: scale(1.05);
+  }
   
   .contact-item i { font-size: 3em; margin-bottom: 12px; }
-  .contact-label { font-weight: bold; font-size: 1.1em; display: block; }
+  .contact-label { font-weight: bold; font-size: 1em; display: block; word-break: break-word; }
 
   .scroll-arrow {
     position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
   }
 
-  @media (max-width: 768px) {
-    .contact-item { min-width: 140px; }
+  /* התאמה למובייל - מעבר ל-2 שורות רק במסכים קטנים מאוד */
+  @media (max-width: 600px) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
   }
 
   @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }

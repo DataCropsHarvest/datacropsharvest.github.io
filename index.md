@@ -35,7 +35,7 @@ author_profile: false
     box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); object-fit: cover;
   }
 
-  /* 3. סקשן התוכן - הקטנת הקונטיינר ל-700px */
+  /* 3. סקשן התוכן */
   .content-wrapper {
     background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(15px); color: white;
     width: 100vw; position: relative; left: 50%; transform: translateX(-50%);
@@ -44,13 +44,11 @@ author_profile: false
 
   .container { width: 90%; max-width: 700px; margin: 0 auto; }
 
-  /* הקטנת ה-padding והמרווח התחתון של הכרטיס */
   .project-card {
     background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 25px;
     border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 30px; text-align: left;
   }
 
-  /* הקטנת גודל הכתב של התגיות */
   .tech-tag {
     display: inline-block; background: rgba(0, 212, 255, 0.1); color: #00d4ff;
     padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
@@ -58,7 +56,7 @@ author_profile: false
 
   /* 4. עיצוב אייקונים תחתון */
   .contact-grid {
-    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; width: 100%;
+    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 50px; width: 100%;
   }
 
   .contact-item {
@@ -67,11 +65,11 @@ author_profile: false
     min-width: 120px;
   }
 
-  .contact-item:hover { color: #00d4ff; transform: scale(1.05); }
+  /* רק פריטים שהם קישורים יגיבו למעבר עכבר */
+  a.contact-item:hover { color: #00d4ff; transform: scale(1.05); }
+  
   .contact-item i { font-size: 3em; margin-bottom: 12px; }
-
   .contact-label { font-weight: bold; font-size: 1.1em; display: block; }
-  .contact-info { font-size: 0.9em; color: #00d4ff; margin-top: 2px; }
 
   .scroll-arrow {
     position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
@@ -123,10 +121,10 @@ author_profile: false
         <span class="contact-label">(+972)-54-7869012</span>
       </a>
 
-      <a href="mailto:barkazir@gmail.com" class="contact-item">
+      <div class="contact-item">
         <i class="fas fa-envelope"></i>
         <span class="contact-label">barkazir@gmail.com</span>
-      </a>
+      </div>
 
       <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">
         <i class="fab fa-linkedin"></i>

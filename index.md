@@ -110,6 +110,24 @@ author_profile: false
   <a href="#projects" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
 </div>
 
+<div id="ai-assistant" style="background: rgba(18, 18, 18, 1); width: 100vw; position: relative; left: 50%; transform: translateX(-50%); padding: 60px 0 20px 0; display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
+  <div class="container" style="width: 95%; max-width: 900px; text-align: center;">
+    <h2 style="font-size: 2.5em; color: white; margin-bottom: 10px;">🤖 AI Career Assistant</h2>
+    <p style="font-size: 1.2em; color: #00d4ff; font-weight: 300; margin-bottom: 30px;">Ask me anything about my professional journey</p>
+    
+    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
+      <iframe
+        src="https://datacropsharvest-career-conversation.hf.space"
+        frameborder="0"
+        width="100%"
+        height="600px"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
 <div id="projects" class="content-wrapper">
   <div class="container">
     <h2 style="text-align: center; font-size: 2.8em; margin: 0 0 40px 0;">Projects</h2>

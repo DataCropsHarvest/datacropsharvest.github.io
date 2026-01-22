@@ -55,11 +55,11 @@ author_profile: false
     padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
   }
 
-  /* 4. עיצוב אייקונים תחתון - סידור בזוגות לקירוב לינקדאין וגיטהאב */
+  /* 4. עיצוב אייקונים תחתון */
   .contact-outer-wrapper {
     display: flex;
     justify-content: center;
-    gap: 80px; /* הרווח הגדול בין זוג ימין לזוג שמאל */
+    gap: 80px;
     margin-top: 50px;
     width: 100%;
     flex-wrap: wrap;
@@ -67,7 +67,7 @@ author_profile: false
 
   .contact-group {
     display: flex;
-    gap: 40px; /* הרווח הקטן יותר בתוך הזוג */
+    gap: 40px;
   }
 
   .contact-item {
@@ -107,83 +107,10 @@ author_profile: false
   <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 5px; font-weight: 900;">Bar Kazir Portfolio</h1>
   <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
   <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
-  <a href="#projects" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
+  <a href="#ai-assistant" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
 </div>
 
-<div id="ai-assistant" style="background: rgba(18, 18, 18, 1); width: 100vw; position: relative; left: 50%; transform: translateX(-50%); padding: 60px 0 20px 0; display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
-  <div class="container" style="width: 95%; max-width: 900px; text-align: center;">
-    <p style="font-size: 1.2em; color: #00d4ff; font-weight: 300; margin-bottom: 30px;">Ask me anything about my professional journey</p>
+<div id="ai-assistant" style="background: rgba(18, 18, 18, 1); width: 100vw; position: relative; left: 50%; transform: translateX(-50%); padding: 80px 0; display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid rgba(0, 212, 255, 0.1); min-height: 100vh; justify-content: center;">
+  <div class="container" style="width: 95%; max-width: 800px; text-align: center;">
     
-    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
-      <iframe
-        src="https://datacropsharvest-career-conversation.hf.space"
-        frameborder="0"
-        width="100%"
-        height="600px"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</div>
-
-<div id="projects" class="content-wrapper">
-  <div class="container">
-    <h2 style="text-align: center; font-size: 2.8em; margin: 0 0 40px 0;">Projects</h2>
-
-    {% if site.data.projects %}
-      {% for project in site.data.projects %}
-      <div class="project-card">
-        {% if project.image %}
-        <img src="{{ project.image }}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(0,212,255,0.1);">
-        {% endif %}
-        
-        <h3 style="font-size: 1.6em; color: #00d4ff; margin-top: 0; margin-bottom: 10px;">{{ project.title }}</h3>
-        <p style="font-size: 1em; line-height: 1.5; margin-bottom: 15px;">{{ project.description }}</p>
-        
-        <div style="margin: 15px 0;">
-          {% for tag in project.tech %}
-          <span class="tech-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        
-        <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-size: 0.9em; font-weight: bold; text-decoration: none; border: 1px solid #00d4ff; padding: 8px 16px; border-radius: 5px; display: inline-block;">VIEW PROJECT →</a>
-      </div>
-      {% endfor %}
-    {% endif %}
-
-    <h2 style="text-align: center; font-size: 3em; margin-top: 80px;">Get In Touch</h2>
-    
-    <div class="contact-outer-wrapper">
-      <div class="contact-group">
-        <a href="https://wa.me/972547869012" class="contact-item" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-          <span class="contact-label">(+972)-54-7869012</span>
-        </a>
-
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <span class="contact-label">barkazir@gmail.com</span>
-        </div>
-      </div>
-
-      <div class="contact-group">
-        <a href="https://www.linkedin.com/in/bar-kazir/" class="contact-item" target="_blank">
-          <i class="fab fa-linkedin"></i>
-          <span class="contact-label">LinkedIn</span>
-        </a>
-
-        <a href="https://github.com/DataCropsHarvest" class="contact-item" target="_blank">
-          <i class="fab fa-github"></i>
-          <span class="contact-label">GitHub</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  window.onbeforeunload = function () { window.scrollTo(0, 0); };
-  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-  window.scrollTo(0, 0);
-</script>
+    <div style="width:

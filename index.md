@@ -97,15 +97,8 @@ author_profile: false
     
     <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
     
-    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
-      <iframe
-        src="https://datacropsharvest-career-conversation.hf.space"
-        frameborder="0"
-        width="100%"
-        height="600px"
-        allowfullscreen>
-      </iframe>
-    </div>
+    <div id="iframe-holder" style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a; min-height: 600px;">
+      </div>
 
     <div style="margin-top: 40px;">
       <a href="#projects" style="color: white; font-size: 3em; text-decoration: none; animation: bounce 2s infinite; display: inline-block;">
@@ -118,7 +111,6 @@ author_profile: false
 <div id="projects" class="content-wrapper">
   <div class="container">
     <h2 style="text-align: center; font-size: 2.8em; margin: 0 0 40px 0;">Projects</h2>
-
     {% if site.data.projects %}
       {% for project in site.data.projects %}
       <div class="project-card">
@@ -164,22 +156,35 @@ author_profile: false
 </div>
 
 <script>
-  // ניקוי עקבות ה-URL ואיפוס גלילה
+  // פתרון אגרסיבי נגד קפיצות:
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-
-  // איפוס גלילה מידי
   window.scrollTo(0, 0);
 
-  // ניקוי הכתובת מעוגנים (#) כדי למנוע קפיצה חוזרת
-  if (window.location.hash) {
-    history.replaceState("", document.title, window.location.pathname + window.location.search);
+  // פונקציה להזרקת ה-Iframe רק אחרי שהדף התייצב
+  function loadChatbot() {
+    const holder = document.getElementById('iframe-holder');
+    const iframe = document.createElement('iframe');
+    iframe.src = "https://datacropsharvest-career-conversation.hf.space";
+    iframe.style.width = "100%";
+    iframe.style.height = "600px";
+    iframe.frameBorder = "0";
+    iframe.setAttribute('allowfullscreen', '');
+    
+    // הזרקה לתוך הדיב
+    holder.appendChild(iframe);
   }
 
   window.addEventListener('load', function() {
-    setTimeout(function() {
-      window.scrollTo(0, 0);
-    }, 1);
+    // 1. ניקוי הכתובת
+    if (window.location.hash) {
+      history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
+    // 2. וידוא הישארות למעלה
+    window.scrollTo(0, 0);
+    
+    // 3. טעינת הצ'אטבוט באיחור קל של 1.5 שניות כדי למנוע את חטיפת הפוקוס בזמן הטעינה
+    setTimeout(loadChatbot, 1500);
   });
 </script>

@@ -17,7 +17,7 @@ author_profile: false
   body, html {
     margin: 0 !important; padding: 0 !important; width: 100vw !important; overflow-x: hidden;
     scroll-behavior: smooth;
-    background-color: #000; /* מונע הבהוב לבן */
+    background-color: #000;
   }
 
   /* 2. Hero Section */
@@ -97,14 +97,14 @@ author_profile: false
     
     <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 30px;">Ask me anything about my professional journey</p>
     
-    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
+    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a; min-height: 600px;">
       <iframe
-        src="https://datacropsharvest-career-conversation.hf.space"
+        id="chat-iframe"
+        data-src="https://datacropsharvest-career-conversation.hf.space"
         frameborder="0"
         width="100%"
         height="600px"
         sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-        loading="lazy"
         allowfullscreen>
       </iframe>
     </div>
@@ -166,10 +166,28 @@ author_profile: false
 </div>
 
 <script>
+  // 1. נטרול גלילה אוטומטית של הדפדפן
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   window.scrollTo(0, 0);
+
+  // 2. פונקציה לטעינת הבוט רק כשצריך
+  function loadIframe() {
+    var iframe = document.getElementById('chat-iframe');
+    if (iframe && !iframe.src) {
+      iframe.src = iframe.getAttribute('data-src');
+    }
+  }
+
+  // טעינה במידה והמשתמש לוחץ על החץ או גולל
+  document.querySelector('.scroll-arrow').addEventListener('click', loadIframe);
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      loadIframe();
+    }
+  });
 
   window.addEventListener('load', function() {
     window.scrollTo(0, 0);

@@ -5,7 +5,9 @@ author_profile: false
 ---
 
 <style>
-  /* 1. ביטול אלמנטים מובנים */
+  /* 1. איפוס מוחלט של מרווחים למעלה */
+  * { box-sizing: border-box; }
+  
   .masthead, .page__footer, .page__taxonomy, .breadcrumb, .page__sidebar, .page__title {
     display: none !important;
   }
@@ -14,9 +16,11 @@ author_profile: false
     width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important;
   }
 
+  /* ביטול המרווח הלבן בראש העמוד */
   body, html {
     margin: 0 !important; padding: 0 !important; width: 100vw !important; overflow-x: hidden;
-    scroll-behavior: auto !important; /* ביטלתי smooth כדי למנוע החלקות לא רצויות בטעינה */
+    scroll-behavior: auto !important;
+    background-color: #000; /* רקע שחור למניעת הבהוב לבן */
   }
 
   /* 2. Hero Section */
@@ -26,7 +30,8 @@ author_profile: false
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
     background-attachment: fixed; background-position: center; background-size: cover;
-    left: 50%; transform: translateX(-50%); text-align: center;
+    margin-top: 0 !important; /* מוודא שאין מרווח למעלה */
+    text-align: center;
     padding-bottom: 12vh;
   }
 
@@ -36,7 +41,6 @@ author_profile: false
     box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); object-fit: cover;
   }
 
-  /* 3. סקשן התוכן */
   .content-wrapper {
     background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(15px); color: white;
     width: 100vw; position: relative; left: 50%; transform: translateX(-50%);
@@ -50,27 +54,6 @@ author_profile: false
     border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 30px; text-align: left;
     max-width: 700px; margin-left: auto; margin-right: auto;
   }
-
-  .tech-tag {
-    display: inline-block; background: rgba(0, 212, 255, 0.1); color: #00d4ff;
-    padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
-  }
-
-  .contact-outer-wrapper {
-    display: flex; justify-content: center; gap: 80px; margin-top: 50px; width: 100%; flex-wrap: wrap;
-  }
-
-  .contact-group { display: flex; gap: 40px; }
-
-  .contact-item {
-    color: white !important; text-align: center; text-decoration: none; transition: 0.3s;
-    display: flex; flex-direction: column; align-items: center; white-space: nowrap;
-  }
-
-  a.contact-item:hover { color: #00d4ff !important; transform: scale(1.05); }
-  
-  .contact-item i { font-size: 3.2em; margin-bottom: 15px; }
-  .contact-label { font-weight: bold; font-size: 1.05em; display: block; }
 
   .scroll-arrow {
     position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
@@ -90,8 +73,14 @@ author_profile: false
 <div id="career-bot" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
   <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 100px;">
     <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
-    <div id="iframe-container" style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a; min-height: 600px;">
-      </div>
+    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
+      <iframe
+        src="https://datacropsharvest-career-conversation.hf.space"
+        style="width:100%; height:600px; border:0;"
+        sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        loading="lazy">
+      </iframe>
+    </div>
     <div style="margin-top: 40px;">
       <a href="#projects" style="color: white; font-size: 3em; text-decoration: none; animation: bounce 2s infinite; display: inline-block;">
         <i class="fas fa-chevron-down"></i>
@@ -148,34 +137,24 @@ author_profile: false
 </div>
 
 <script>
-  // 1. ביטול מוחלט של זיכרון הגלילה של הדפדפן
+  // מניעת גלילה אוטומטית ע"י הדפדפן
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
 
-  // 2. פונקציית טעינה מושהית לבוט
-  function initBot() {
-    const container = document.getElementById('iframe-container');
-    const ifr = document.createElement('iframe');
-    ifr.src = "https://datacropsharvest-career-conversation.hf.space";
-    ifr.style.width = "100%";
-    ifr.style.height = "600px";
-    ifr.frameBorder = "0";
-    ifr.setAttribute('allowfullscreen', '');
-    container.appendChild(ifr);
-  }
-
-  // 3. אכיפת המיקום העליון
+  // איפוס גלילה מידי עם הטעינה
   window.scrollTo(0, 0);
 
-  window.addEventListener('load', function() {
-    // איפוס כתובת וגלילה
-    if (window.location.hash) {
-      history.replaceState("", document.title, window.location.pathname);
+  // פתרון ה"קפיצה": מונע פוקוס אוטומטי מה-Iframe
+  window.addEventListener('blur', function() {
+    if (document.activeElement.tagName === 'IFRAME') {
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
-    
-    // טעינת הבוט רק אחרי שהכל שקט (2 שניות)
-    setTimeout(initBot, 2000);
+  });
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 10);
   });
 </script>

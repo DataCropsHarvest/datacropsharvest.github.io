@@ -5,11 +5,19 @@ author_profile: false
 ---
 
 <style>
-  /* 1. איפוס מרווחים למעלה */
-  * { box-sizing: border-box; }
-  .masthead, .page__footer, .page__taxonomy, .breadcrumb, .page__sidebar, .page__title { display: none !important; }
-  #main, .page, .page__content, .archive { width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-  body, html { margin: 0 !important; padding: 0 !important; width: 100vw !important; overflow-x: hidden; scroll-behavior: auto !important; background-color: #000; }
+  /* 1. ביטול אלמנטים מובנים */
+  .masthead, .page__footer, .page__taxonomy, .breadcrumb, .page__sidebar, .page__title {
+    display: none !important;
+  }
+
+  #main, .page, .page__content, .archive {
+    width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important;
+  }
+
+  body, html {
+    margin: 0 !important; padding: 0 !important; width: 100vw !important; overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
 
   /* 2. Hero Section */
   .hero-wrapper {
@@ -18,7 +26,7 @@ author_profile: false
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
     background-attachment: fixed; background-position: center; background-size: cover;
-    left: 50%; transform: translateX(-50%); text-align: center; margin-top: 0 !important;
+    left: 50%; transform: translateX(-50%); text-align: center;
   }
 
   .profile-circle {
@@ -33,24 +41,46 @@ author_profile: false
     width: 100vw; position: relative; left: 50%; transform: translateX(-50%);
     padding: 40px 0 80px 0; display: flex; flex-direction: column; align-items: center;
   }
+
   .container { width: 95%; max-width: 1200px; margin: 0 auto; }
+
   .project-card {
     background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 25px;
     border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 30px; text-align: left;
     max-width: 700px; margin-left: auto; margin-right: auto;
   }
-  .tech-tag { display: inline-block; background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff; }
 
-  /* 4. עיצוב אייקונים תחתון - המקורי */
-  .contact-outer-wrapper { display: flex; justify-content: center; gap: 80px; margin-top: 50px; width: 100%; flex-wrap: wrap; }
+  .tech-tag {
+    display: inline-block; background: rgba(0, 212, 255, 0.1); color: #00d4ff;
+    padding: 3px 10px; border-radius: 5px; font-size: 0.75em; margin: 3px 5px 3px 0; border: 1px solid #00d4ff;
+  }
+
+  .contact-outer-wrapper {
+    display: flex; justify-content: center; gap: 80px; margin-top: 50px; width: 100%; flex-wrap: wrap;
+  }
+
   .contact-group { display: flex; gap: 40px; }
-  .contact-item { color: white !important; text-align: center; text-decoration: none; transition: 0.3s; display: flex; flex-direction: column; align-items: center; white-space: nowrap; }
+
+  .contact-item {
+    color: white !important; text-align: center; text-decoration: none; transition: 0.3s;
+    display: flex; flex-direction: column; align-items: center; white-space: nowrap;
+  }
+
   a.contact-item:hover { color: #00d4ff !important; transform: scale(1.05); }
+  
   .contact-item i { font-size: 3.2em; margin-bottom: 15px; }
   .contact-label { font-weight: bold; font-size: 1.05em; display: block; }
 
-  .scroll-arrow { position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite; }
-  @media (max-width: 768px) { .contact-outer-wrapper { gap: 40px; } .contact-group { gap: 20px; } .contact-item { white-space: normal; } }
+  .scroll-arrow {
+    position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
+  }
+
+  @media (max-width: 768px) {
+    .contact-outer-wrapper { gap: 40px; }
+    .contact-group { gap: 20px; }
+    .contact-item { white-space: normal; }
+  }
+
   @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }
 </style>
 
@@ -58,24 +88,26 @@ author_profile: false
   <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 5px; font-weight: 900;">Bar Kazir Portfolio</h1>
   <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
   <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
-  <a href="#career-bot" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
+  <a href="#ai-assistant" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
 </div>
 
-<div id="career-bot" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
-  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 100px;">
-    <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
+<div id="ai-assistant" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
+  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 80px;"> <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
     
-    <div style="position: relative; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
-      <div id="bot-overlay" onclick="this.style.display='none'" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; background: transparent;"></div>
+    <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
       <iframe
         src="https://datacropsharvest-career-conversation.hf.space"
-        style="width: 100%; height: 600px; border: 0;"
+        frameborder="0"
+        width="100%"
+        height="600px"
         allowfullscreen>
       </iframe>
     </div>
 
     <div style="margin-top: 40px;">
-      <a href="#projects" style="color: white; font-size: 3em; text-decoration: none; animation: bounce 2s infinite; display: inline-block;"><i class="fas fa-chevron-down"></i></a>
+      <a href="#projects" style="color: white; font-size: 3em; text-decoration: none; animation: bounce 2s infinite; display: inline-block;">
+        <i class="fas fa-chevron-down"></i>
+      </a>
     </div>
   </div>
 </div>
@@ -87,10 +119,16 @@ author_profile: false
     {% if site.data.projects %}
       {% for project in site.data.projects %}
       <div class="project-card">
-        {% if project.image %}<img src="{{ project.image }}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(0,212,255,0.1);">{% endif %}
+        {% if project.image %}
+        <img src="{{ project.image }}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(0,212,255,0.1);">
+        {% endif %}
         <h3 style="font-size: 1.6em; color: #00d4ff; margin-top: 0; margin-bottom: 10px;">{{ project.title }}</h3>
         <p style="font-size: 1em; line-height: 1.5; margin-bottom: 15px;">{{ project.description }}</p>
-        <div style="margin: 15px 0;">{% for tag in project.tech %}<span class="tech-tag">{{ tag }}</span>{% endfor %}</div>
+        <div style="margin: 15px 0;">
+          {% for tag in project.tech %}
+          <span class="tech-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
         <a href="{{ project.link }}" target="_blank" style="color: #00d4ff; font-size: 0.9em; font-weight: bold; text-decoration: none; border: 1px solid #00d4ff; padding: 8px 16px; border-radius: 5px; display: inline-block;">VIEW PROJECT →</a>
       </div>
       {% endfor %}
@@ -123,7 +161,10 @@ author_profile: false
 </div>
 
 <script>
-  window.onbeforeunload = function () { window.scrollTo(0, 0); };
-  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-  window.scrollTo(0, 0);
+  // פקודה להבטיח טעינה בראש הדף
+  window.onload = function() {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 10);
+  };
 </script>

@@ -17,6 +17,7 @@ author_profile: false
   body, html {
     margin: 0 !important; padding: 0 !important; width: 100vw !important; overflow-x: hidden;
     scroll-behavior: smooth;
+    background-color: #000; /* מונע הבהוב לבן */
   }
 
   /* 2. Hero Section */
@@ -88,11 +89,11 @@ author_profile: false
   <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 5px; font-weight: 900;">Bar Kazir Portfolio</h1>
   <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
   <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
-  <a href="#ai-assistant" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
+  <a href="#career-bot" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
 </div>
 
-<div id="ai-assistant" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
-  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 100px;">
+<div id="career-bot" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1); margin-top: -1px;">
+  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 60px;">
     
     <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 30px;">Ask me anything about my professional journey</p>
     
@@ -103,6 +104,7 @@ author_profile: false
         width="100%"
         height="600px"
         sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        loading="lazy"
         allowfullscreen>
       </iframe>
     </div>
@@ -164,7 +166,6 @@ author_profile: false
 </div>
 
 <script>
-  // מניעת גלילה אוטומטית ע"י הדפדפן ואיפוס לראש הדף
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }

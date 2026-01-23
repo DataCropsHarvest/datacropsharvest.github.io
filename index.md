@@ -19,7 +19,7 @@ author_profile: false
     scroll-behavior: smooth;
   }
 
-  /* 2. Hero Section */
+  /* 2. Hero Section - החזרת הכותרת למעלה */
   .hero-wrapper {
     position: relative; height: 100vh; width: 100vw; display: flex; flex-direction: column;
     align-items: center; justify-content: center; color: white;
@@ -27,6 +27,7 @@ author_profile: false
                 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
     background-attachment: fixed; background-position: center; background-size: cover;
     left: 50%; transform: translateX(-50%); text-align: center;
+    padding-bottom: 10vh; /* דוחף את התוכן מעט למעלה */
   }
 
   .profile-circle {
@@ -102,6 +103,7 @@ author_profile: false
         frameborder="0"
         width="100%"
         height="600px"
+        loading="lazy"
         allowfullscreen>
       </iframe>
     </div>
@@ -163,18 +165,18 @@ author_profile: false
 </div>
 
 <script>
-  // פתרון סופי לבעיית ה-Scroll: מאפס את הדף לראש הדף מיד בטעינה ובריענון
+  // מניעת קפיצה לבוט עקב פוקוס אוטומטי של ה-Iframe
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  
+
+  // איפוס לראש הדף מיד עם הטעינה
   window.scrollTo(0, 0);
 
   window.addEventListener('load', function() {
-    window.scrollTo(0, 0);
-    // ליתר ביטחון, אם יש האש (#) ב-URL, ננקה אותו
-    if (window.location.hash) {
-      history.replaceState("", document.title, window.location.pathname + window.location.search);
-    }
+    // השהיה קלה כדי לוודא שכל האלמנטים נטענו והדפדפן לא מנסה לגלול לבד
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 5);
   });
 </script>

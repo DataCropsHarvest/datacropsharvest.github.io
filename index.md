@@ -16,7 +16,7 @@ author_profile: false
 
   body, html {
     margin: 0 !important; padding: 0 !important; width: 100vw !important; overflow-x: hidden;
-    scroll-behavior: smooth;
+    scroll-behavior: auto !important; /* ביטלתי smooth כדי למנוע החלקות לא רצויות בטעינה */
   }
 
   /* 2. Hero Section */
@@ -74,12 +74,7 @@ author_profile: false
 
   .scroll-arrow {
     position: absolute; bottom: 40px; font-size: 3em; color: white; animation: bounce 2s infinite;
-  }
-
-  @media (max-width: 768px) {
-    .contact-outer-wrapper { gap: 40px; }
-    .contact-group { gap: 20px; }
-    .contact-item { white-space: normal; }
+    cursor: pointer;
   }
 
   @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }
@@ -94,12 +89,9 @@ author_profile: false
 
 <div id="career-bot" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
   <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 100px;">
-    
     <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
-    
-    <div id="iframe-holder" style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a; min-height: 600px;">
+    <div id="iframe-container" style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a; min-height: 600px;">
       </div>
-
     <div style="margin-top: 40px;">
       <a href="#projects" style="color: white; font-size: 3em; text-decoration: none; animation: bounce 2s infinite; display: inline-block;">
         <i class="fas fa-chevron-down"></i>
@@ -156,35 +148,34 @@ author_profile: false
 </div>
 
 <script>
-  // פתרון אגרסיבי נגד קפיצות:
+  // 1. ביטול מוחלט של זיכרון הגלילה של הדפדפן
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  window.scrollTo(0, 0);
 
-  // פונקציה להזרקת ה-Iframe רק אחרי שהדף התייצב
-  function loadChatbot() {
-    const holder = document.getElementById('iframe-holder');
-    const iframe = document.createElement('iframe');
-    iframe.src = "https://datacropsharvest-career-conversation.hf.space";
-    iframe.style.width = "100%";
-    iframe.style.height = "600px";
-    iframe.frameBorder = "0";
-    iframe.setAttribute('allowfullscreen', '');
-    
-    // הזרקה לתוך הדיב
-    holder.appendChild(iframe);
+  // 2. פונקציית טעינה מושהית לבוט
+  function initBot() {
+    const container = document.getElementById('iframe-container');
+    const ifr = document.createElement('iframe');
+    ifr.src = "https://datacropsharvest-career-conversation.hf.space";
+    ifr.style.width = "100%";
+    ifr.style.height = "600px";
+    ifr.frameBorder = "0";
+    ifr.setAttribute('allowfullscreen', '');
+    container.appendChild(ifr);
   }
 
+  // 3. אכיפת המיקום העליון
+  window.scrollTo(0, 0);
+
   window.addEventListener('load', function() {
-    // 1. ניקוי הכתובת
+    // איפוס כתובת וגלילה
     if (window.location.hash) {
-      history.replaceState("", document.title, window.location.pathname + window.location.search);
+      history.replaceState("", document.title, window.location.pathname);
     }
-    // 2. וידוא הישארות למעלה
     window.scrollTo(0, 0);
     
-    // 3. טעינת הצ'אטבוט באיחור קל של 1.5 שניות כדי למנוע את חטיפת הפוקוס בזמן הטעינה
-    setTimeout(loadChatbot, 1500);
+    // טעינת הבוט רק אחרי שהכל שקט (2 שניות)
+    setTimeout(initBot, 2000);
   });
 </script>

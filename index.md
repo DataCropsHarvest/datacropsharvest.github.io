@@ -19,7 +19,7 @@ author_profile: false
     scroll-behavior: smooth;
   }
 
-  /* 2. Hero Section - החזרת הכותרת למעלה */
+  /* 2. Hero Section */
   .hero-wrapper {
     position: relative; height: 100vh; width: 100vw; display: flex; flex-direction: column;
     align-items: center; justify-content: center; color: white;
@@ -27,7 +27,7 @@ author_profile: false
                 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
     background-attachment: fixed; background-position: center; background-size: cover;
     left: 50%; transform: translateX(-50%); text-align: center;
-    padding-bottom: 10vh; /* דוחף את התוכן מעט למעלה */
+    padding-bottom: 12vh;
   }
 
   .profile-circle {
@@ -89,11 +89,11 @@ author_profile: false
   <h1 style="font-size: clamp(3em, 10vw, 5em); text-transform: uppercase; margin: 0; letter-spacing: 5px; font-weight: 900;">Bar Kazir Portfolio</h1>
   <img src="https://github.com/DataCropsHarvest.png" class="profile-circle" alt="Bar Kazir">
   <p style="font-size: 2em; color: #00d4ff; font-weight: 300;">Python | SQL | AI and Machine Learning</p>
-  <a href="#ai-assistant" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
+  <a href="#career-bot" class="scroll-arrow"><i class="fas fa-chevron-down"></i></a>
 </div>
 
-<div id="ai-assistant" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
-  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 80px;">
+<div id="career-bot" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
+  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 100px;">
     
     <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
     
@@ -103,7 +103,6 @@ author_profile: false
         frameborder="0"
         width="100%"
         height="600px"
-        loading="lazy"
         allowfullscreen>
       </iframe>
     </div>
@@ -165,18 +164,22 @@ author_profile: false
 </div>
 
 <script>
-  // מניעת קפיצה לבוט עקב פוקוס אוטומטי של ה-Iframe
+  // ניקוי עקבות ה-URL ואיפוס גלילה
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
 
-  // איפוס לראש הדף מיד עם הטעינה
+  // איפוס גלילה מידי
   window.scrollTo(0, 0);
 
+  // ניקוי הכתובת מעוגנים (#) כדי למנוע קפיצה חוזרת
+  if (window.location.hash) {
+    history.replaceState("", document.title, window.location.pathname + window.location.search);
+  }
+
   window.addEventListener('load', function() {
-    // השהיה קלה כדי לוודא שכל האלמנטים נטענו והדפדפן לא מנסה לגלול לבד
     setTimeout(function() {
       window.scrollTo(0, 0);
-    }, 5);
+    }, 1);
   });
 </script>

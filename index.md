@@ -92,7 +92,9 @@ author_profile: false
 </div>
 
 <div id="ai-assistant" style="background: #121212; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
-  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 80px;"> <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
+  <div class="container" style="width: 95%; max-width: 850px; text-align: center; padding-top: 80px;">
+    
+    <p style="font-size: 1.8em; color: #00d4ff; font-weight: 300; margin-bottom: 40px;">Ask me anything about my professional journey</p>
     
     <div style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); background: #1a1a1a;">
       <iframe
@@ -161,10 +163,18 @@ author_profile: false
 </div>
 
 <script>
-  // פקודה להבטיח טעינה בראש הדף
-  window.onload = function() {
-    setTimeout(function() {
-      window.scrollTo(0, 0);
-    }, 10);
-  };
+  // פתרון סופי לבעיית ה-Scroll: מאפס את הדף לראש הדף מיד בטעינה ובריענון
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  
+  window.scrollTo(0, 0);
+
+  window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+    // ליתר ביטחון, אם יש האש (#) ב-URL, ננקה אותו
+    if (window.location.hash) {
+      history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
+  });
 </script>
